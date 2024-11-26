@@ -4,17 +4,6 @@ import operator
 from functools import partial
 from jax.tree_util import tree_flatten, tree_map, tree_unflatten
 
-drop_first = lambda _: _[1:]
-drop_last = lambda _: _[:-1]
-first = lambda _: _[0]
-last = lambda _: _[-1]
-
-def append(xs, x, axis=0):
-    return tree_cat([xs, jnp.expand_dims(x, axis)], axis)
-def prepend(xs, x, axis=0):
-    return tree_cat([jnp.expand_dims(x, axis), xs], axis)
-
-# tree utilities
 tree_drop_first = lambda _: tree_map(lambda x: x[1:], _)
 tree_drop_last = lambda _: tree_map(lambda x: x[:-1], _)
 tree_first = lambda _: tree_map(lambda x: x[0], _)
