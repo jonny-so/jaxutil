@@ -1,6 +1,5 @@
 from jaxutil.tree import tree_map
 from jax.lax import scan
-import numpy as np
 
 # unvectorized map - functionally equivalent to vmap, but does not perform a vectorizing transformation.
 # sometimes the vmap transformation can result in poor performance when the mapped function contains control
